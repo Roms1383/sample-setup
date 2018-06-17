@@ -1,0 +1,42 @@
+{
+  "name": "setup",
+  "version": "0.0.1",
+  "author": "Romain KELIFA",
+  "email": "romain.kelifa@gmail.com",
+  "main": "index.js",
+  "scripts": {
+    "unit-test": "jest",
+    "pretty": "prettier --write",
+    "format": "eslint --fix",
+    "lint": "npm run pretty ./**/*.js && npm run format ./**/*.js",
+    "pre-commit": "lint-staged",
+    "pre-push": "unit-test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit",
+      "pre-push": "npm run pre-push"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run pretty",
+      "npm run format",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "ajv": "^6.5.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^1.0.0-rc.7",
+    "jest": "^23.0.0",
+    "lint-staged": "^7.1.2",
+    "prettier": "1.12.1",
+    "pretty-quick": "^1.6.0",
+    "standard": "^11.0.1"
+  }
+}

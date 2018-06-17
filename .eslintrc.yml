@@ -1,0 +1,9 @@
+extends: standard
+rules:
+  indent:
+    - error
+    - 2
+    - MemberExpression: 0
+  arrow-body-style:
+    - error
+    - as-needed
